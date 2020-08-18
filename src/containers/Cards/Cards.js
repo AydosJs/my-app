@@ -1,44 +1,47 @@
-import React, { Component } from 'react';
+import React, { useState } from 'react';
 import { Grid, Container } from '@material-ui/core';
 
 import Card from '../../components/Card/Card'
 
-class Cards extends Component {
-  state = {
-    nums: [1, 2, 3, 4, 5]
+function Cards() {
+
+  const [state, setState] = useState([1, 2, 3, 4, 5])
+
+  function HandleEvent() {
+    const lastNum = state.pop();
+
+    setState(() => {
+      return [lastNum, ...state]
+    })
   }
 
-   HandleEvent = () => {
-     const oldData = [...this.state.nums];
-     const lastNum = oldData.splice(-1, 1);
+  let card = <div>Loading...!</div>
 
-     const newData = [...lastNum, ...oldData]
-     this.setState({nums: newData})
-  }
-  
-  
-  render() {
-
-    let card = this.state.nums.map(num => {
+  if(state){
+    console.log(state)
+    card = state.map(num => {
       return (<Card
         key={num}
         num={num}
-        clicked={this.HandleEvent} />)
+        clicked={HandleEvent} />)
     })
+  }
 
-    return (
-      <Container >
+  return (
+    <Container >
       <Grid
         spacing={2}
         container
         direction="row"
         justify="center"
         alignItems="center" >
+
         {card}
+
       </Grid>
-      </Container>
-    )
-  }
+    </Container>
+  )
+
 }
 
 export default Cards;
