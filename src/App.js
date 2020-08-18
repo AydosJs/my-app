@@ -19,7 +19,7 @@ function App() {
         </AppBar>
       </header>
 
-      <section>
+      <section className="section">
         <Cards />
       </section>
 

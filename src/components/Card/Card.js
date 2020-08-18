@@ -4,9 +4,6 @@ import { makeStyles } from '@material-ui/core/styles';
 
 
 const useStyles = makeStyles((theme) => ({
-  Card :{
-    marginTop: "25px"
-  },
   paper: {
     cursor: "pointer",
     padding: theme.spacing(2),
@@ -23,7 +20,7 @@ const Card = props => {
   const classes = useStyles();
 
   return (
-    <Grid className={classes.Card} item xs={4} onClick={props.clicked}>
+    <Grid item xs={6} sm={4} md={2} onClick={props.clicked}>
       <Paper className={classes.paper}>
         <Typography variant="h1" component="h2">{props.num}</Typography>
       </Paper>

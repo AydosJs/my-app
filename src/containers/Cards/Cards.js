@@ -27,12 +27,12 @@ class Cards extends Component {
     })
 
     return (
-      <Container maxWidth="sm">
+      <Container >
       <Grid
         spacing={2}
         container
         direction="row"
-        justify="flex-start"
+        justify="center"
         alignItems="center" >
         {card}
       </Grid>
