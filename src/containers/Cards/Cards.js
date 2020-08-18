@@ -18,7 +18,6 @@ function Cards() {
   let card = <div>Loading...!</div>
 
   if(state){
-    console.log(state)
     card = state.map(num => {
       return (<Card
         key={num}
